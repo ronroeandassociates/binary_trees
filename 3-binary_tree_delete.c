@@ -1,17 +1,18 @@
-/**
- * struct binary_tree_s - Binary tree node
- *
- * @n: Integer stored in the node
- * @parent: Pointer to the parent node
- * @left: Pointer to the left child node
- * @right: Pointer to the right child node
- */
-struct binary_tree_s
-{
-  int n;
-  struct binary_tree_s *parent;
-  struct binary_tree_s *left;
-  struct binary_tree_s *right;
-};
+#include "binary_trees.h"
 
-typedef struct binary_tree_s binary_tree_t;
+/**
+ * binary_tree_delete - deletes an entire binary tree
+ * @tree: root node of the tree to delete
+ */
+void binary_tree_delete(binary_tree_t *tree)
+{
+	if (tree == NULL)
+		return;
+
+	/* Post-order */
+	if (tree->left != NULL)
+		binary_tree_delete(tree->left);
+	if (tree->right != NULL)
+		binary_tree_delete(tree->right);
+	free(tree);
+}
