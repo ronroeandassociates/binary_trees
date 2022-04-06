@@ -33,6 +33,10 @@ void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
 size_t binary_tree_height(const binary_tree_t *tree);
 
+/* auxiliary function */
+void aux_height(const binary_tree_t *tree, size_t node_h, size_t *height);
+int is_leaf(const binary_tree_t *node);
+
 /* Print binary tree */
 void binary_tree_print(const binary_tree_t *);
 
