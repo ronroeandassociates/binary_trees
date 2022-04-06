@@ -1,17 +1,14 @@
-/**
- * struct binary_tree_s - Binary tree node
- *
- * @n: Integer stored in the node
- * @parent: Pointer to the parent node
- * @left: Pointer to the left child node
- * @right: Pointer to the right child node
- */
-struct binary_tree_s
-{
-  int n;
-  struct binary_tree_s *parent;
-  struct binary_tree_s *left;
-  struct binary_tree_s *right;
-};
+#include "binary_trees.h"
 
-typedef struct binary_tree_s binary_tree_t;
+/**
+ * binary_tree_depth -  measures the depth of a node in a binary tree
+ * @tree: pointer to the node to measure the depth
+ *
+ * Return: Depth. 0 if tree is NULL
+ */
+size_t binary_tree_depth(const binary_tree_t *tree)
+{
+	if (tree == NULL || tree->parent == NULL)
+		return (0);
+	return (1 + binary_tree_depth(tree->parent));
+}
