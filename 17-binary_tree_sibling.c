@@ -1,17 +1,16 @@
-/**
- * struct binary_tree_s - Binary tree node
- *
- * @n: Integer stored in the node
- * @parent: Pointer to the parent node
- * @left: Pointer to the left child node
- * @right: Pointer to the right child node
- */
-struct binary_tree_s
-{
-  int n;
-  struct binary_tree_s *parent;
-  struct binary_tree_s *left;
-  struct binary_tree_s *right;
-};
+#include "binary_trees.h"
 
-typedef struct binary_tree_s binary_tree_t;
+/**
+ * binary_tree_sibling - finds the sibling of a node
+ * @node: pointer to the node to find the sibling
+ *
+ * Return: pointer to sibling node. NULL if no sibling or node or parent NULL
+ */
+binary_tree_t *binary_tree_sibling(binary_tree_t *node)
+{
+	if (node == NULL || node->parent == NULL)
+		return (NULL);
+	if (node->parent->left == node)
+		return (node->parent->right);
+	return (node->parent->left);
+}
