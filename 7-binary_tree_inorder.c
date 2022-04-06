@@ -1,17 +1,19 @@
-/**
- * struct binary_tree_s - Binary tree node
- *
- * @n: Integer stored in the node
- * @parent: Pointer to the parent node
- * @left: Pointer to the left child node
- * @right: Pointer to the right child node
- */
-struct binary_tree_s
-{
-  int n;
-  struct binary_tree_s *parent;
-  struct binary_tree_s *left;
-  struct binary_tree_s *right;
-};
+#include "binary_trees.h"
 
-typedef struct binary_tree_s binary_tree_t;
+/**
+ * binary_tree_inorder - checks if a node is a leaf
+ * @tree: is a pointer to the root node of the tree to traverse
+ * @func: is a pointer to a function to call for each node.
+ * The value in the node must be passed as a parameter to this function.
+ *
+ * Return: 1 if node is a leaf. 0 otherwise or in case of error
+ */
+void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
+{
+	if (tree == NULL || func == NULL)
+		return;
+
+	binary_tree_inorder(tree->left, func);
+	func(tree->n);
+	binary_tree_inorder(tree->right, func);
+}
