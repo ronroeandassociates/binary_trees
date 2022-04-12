@@ -2,6 +2,8 @@
 
 # 0x07. Binary Trees 0
 
+# 0x08. Binary Trees 1
+
 ## Learning Objectives
 
 At the end of this project, you are expected to be able to `explain to anyone`, **without the help of Google**:
@@ -11,3 +13,6 @@ At the end of this project, you are expected to be able to `explain to anyone`, 
 - What are the depth, the height, the size of a binary tree
 - What are the different traversal methods to go through a binary tree
 - What is a complete, a full, a perfect, a balanced binary tree
+
+- What is a binary search tree
+- What is the difference between a binary tree and a Binary Search Tree
